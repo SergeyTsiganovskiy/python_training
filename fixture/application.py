@@ -7,8 +7,7 @@ class Application:
         self.wd = webdriver.Chrome(executable_path='D:\\tools\\chromedriver.exe')
         self.wd.implicitly_wait(60)
         self.session = SessionHelper(self)
-        self.group = GroupHelper()
-
+        self.group = GroupHelper(self)
 
 
     def open_home_page(self):
