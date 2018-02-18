@@ -10,10 +10,9 @@ class GroupHelper:
     def create(self, group):
         wd = self.app.wd
         self.open_groups_page()
-        wd.find_element_by_link_text("add new").click()
         wd.find_element_by_link_text("groups").click()
         wd.find_element_by_name("new").click()
-        self.fill_group_form(group, wd)
+        self.fill_group_form(group)
         wd.find_element_by_name("submit").click()
         self.return_to_groups_page()
 
@@ -33,7 +32,7 @@ class GroupHelper:
     def modify_first_group(self, new_group_data):
         wd = self.app.wd
         self.open_groups_page()
-        wd.find_element_by_link_text("groups").click()
+
         self.select_first_group()
         wd.find_element_by_name("edit").click()
         self.fill_group_form(new_group_data)
@@ -54,4 +53,4 @@ class GroupHelper:
 
     def open_groups_page(self):
         wd = self.app.wd
-        wd.find_element_by_xpath("//form[@id='LoginForm']/input[3]").click()
+        wd.find_element_by_link_text("groups").click()
